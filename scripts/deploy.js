@@ -7,11 +7,10 @@
 const hre = require("hardhat");
 
 async function main() {
-	const lock = await hre.ethers.deployContract("Lock", [unlockTime], {
-		value: lockedAmount,
-	});
+	const Chai = await hre.ethers.getContractFactory("chai");
+	const chai = await Lock.deploy(); // we're not passing anything to the constructor so nothing inside the brackets
 
-	await lock.waitForDeployment();
+	await lock.chai();
 
 	console.log("Deployed contract addres:", `${lock.address}`);
 }
