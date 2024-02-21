@@ -14,8 +14,8 @@ function App() {
 	useEffect(() => {
 		const template = async () => {
 			//1st step- fetching the address and the ABI
-			const contractAddress = "";
-			const contractABI = "";
+			const contractAddress = ""; // it has to be complete
+			const contractABI = ""; // it also has to be complete
 			//here will be the code that will connect to MetaMask wallet
 			//in order to do transactions on goerli testnet
 			//metamask consists of infura api which helps in connecting to the blockchain
