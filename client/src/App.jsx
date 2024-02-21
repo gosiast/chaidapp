@@ -29,6 +29,13 @@ function App() {
 
 			//we have a signer - helps us doing transactions that will change state of the blockchain
 			const signer = provider.getSigner(); //it helps writing the blockchains
+
+			//3 things required to create instance
+			const contract = new ethers.Contract(
+				contractAddress, //this is where my contract is deployed, so i wanna go there
+				contractABI, // i need ABi bc i want to 'talk' to smart contract, it's required
+				signer //we can do all sort of transactions on the contract
+			);
 		};
 
 		template();
