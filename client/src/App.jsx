@@ -11,15 +11,24 @@ function App() {
 	//using useeffect because wants to automatically fetch contracts
 	useEffect(() => {
 		const template = async () => {
+			//1st step- fetching the address and the ABI
 			const contractAddress = "";
 			const contractABI = "";
 			//here will be the code that will connect to MetaMask wallet
 			//in order to do transactions on goerli testnet
 			//metamask consists of infura api which helps in connecting to the blockchain
+			//connecting the the wallet
 			const { ethereum } = window;
 			const account = await ethereum.request({
 				method: "eth_requestAccounts", //automatically open metamask wallet whenever user visits the website
 			});
+
+			// provider will help us connect with the blockchain
+			//for that we need hardhat ether library
+			const provider = new ethers.providers.Web3Provider(ethereum);
+
+			//we have a signer - helps us doing transactions that will change state of the blockchain
+			const signer = provider.getSigner(); //it helps writing the blockchains
 		};
 
 		template();
