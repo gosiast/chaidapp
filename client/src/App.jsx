@@ -8,6 +8,8 @@ function App() {
 		contract: null,
 	});
 
+	const [account, setAccount] = useState("not connected");
+
 	//using useeffect because wants to automatically fetch contracts
 	useEffect(() => {
 		const template = async () => {
@@ -22,6 +24,7 @@ function App() {
 			const account = await ethereum.request({
 				method: "eth_requestAccounts", //automatically open metamask wallet whenever user visits the website
 			});
+			setAccount(account);
 
 			// provider will help us connect with the blockchain
 			//for that we need hardhat ether library
@@ -36,6 +39,7 @@ function App() {
 				contractABI, // i need ABi bc i want to 'talk' to smart contract, it's required
 				signer //we can do all sort of transactions on the contract
 			);
+			setState({ provider, signer, contract });
 		};
 
 		template();
