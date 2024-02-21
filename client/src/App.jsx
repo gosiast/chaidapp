@@ -16,7 +16,13 @@ function App() {
 			//here will be the code that will connect to MetaMask wallet
 			//in order to do transactions on goerli testnet
 			//metamask consists of infura api which helps in connecting to the blockchain
+			const { etherum } = window;
+			const account = await etherum.request({
+				method: "eth_requestAccounts", //automatically open metamask wallet whenever user visits the website
+			});
 		};
+
+		template();
 	});
 	return (
 		<>
