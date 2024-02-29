@@ -14,7 +14,10 @@ async function main() {
 
 	await chai.waitForDeployment(); //deploying the smart contract
 
-	console.log("Deployed contract address:", `${chai.address}`);
+	// ! logging this variable we can see the contract address is called target
+	// console.log(chai);
+
+	console.log("Deployed contract address:", `${chai.target}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
