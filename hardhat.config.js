@@ -7,9 +7,6 @@ require("dotenv").config();
 const GOERLI_URL = process.env.GOERLI_URL; //accessing it from the .env file
 const PRIVATE_KEY = process.env.PRIVATE_KEY; //accessing it from the .env file
 
-console.log("GOERLI_URL:", GOERLI_URL);
-console.log("PRIVATE_KEY:", PRIVATE_KEY);
-
 module.exports = {
 	solidity: "0.8.17",
 	networks: {
@@ -19,3 +16,5 @@ module.exports = {
 		},
 	},
 };
+// deployed contract addresss 0x5FbDB2315678afecb367f032d93F642f64180aa3
+// private key - metamask wallet
