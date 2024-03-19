@@ -12,7 +12,8 @@ const hre = require("hardhat");
 async function main() {
 	const Chai = await hre.ethers.getContractFactory("chai"); //fetching bytecode and ABI
 	//creating an object of smart contract (so we can TALK to the smart contract)
-	const chai = await Chai.deploy(); // we're not passing anything to the constructor so nothing inside the brackets
+	const chai = await Chai.deploy(); // we're not passing anything to the constructor(in chai.sol)
+	//so nothing inside the brackets in here as well
 
 	await chai.waitForDeployment(); //deploying the smart contract
 
