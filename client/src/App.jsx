@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import abi from "./contractJson/chai.json";
+import { ethers } from "ethers";
+
 import "./App.css";
 
 function App() {
@@ -8,6 +10,7 @@ function App() {
 		signer: null,
 		contract: null,
 	});
+	const { Web3Provider } = ethers.providers;
 
 	const [account, setAccount] = useState("not connected");
 
@@ -17,7 +20,7 @@ function App() {
 		const template = async () => {
 			//1st step- fetching the address and the ABI
 			const contractAddress = "0x9739177B2FC3F171719F41fb72fAc8CfF2Bc5b35"; // it has to be complete afterwards
-			const contractABI = ""; // it also has to be complete later
+			const contractABI = abi.abi; // it also has to be complete later
 			//here will be the code that will connect to MetaMask wallet
 			//1. in order to do transactions on goerli testnet
 			//2. metamask consists of infura api which helps connecting to the blockchain
