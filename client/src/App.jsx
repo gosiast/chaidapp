@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import abi from "./contractJson/chai.json";
 import Buy from "./components/Buy";
 import Memos from "./components/Memos";
-import { ethers } from "ethers";
+import { ethers } from "ethers"; // https://docs.ethers.org/v6/getting-started/
 import "./App.css";
 
 function App() {
@@ -35,6 +35,10 @@ function App() {
 					method: "eth_requestAccounts",
 					// the above will automatically open metamask wallet whenever user visits the website
 				});
+				// this way once the account is changed, it refreshes automatically
+				window.ethereum.on("accountsChanged", () => {
+					window.location.reload();
+				});
 				setAccount(account);
 
 				// provider will help us connect with the blockchain
@@ -61,8 +65,9 @@ function App() {
 	return (
 		<>
 			<div className="App">
+				Connected Account: {account}
 				<Buy state={state}></Buy>
-				<Memos state={state}></Memos>
+				{/*<Memos state={state}></Memos>*/}
 			</div>
 		</>
 	);
