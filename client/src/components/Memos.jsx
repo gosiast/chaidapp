@@ -14,6 +14,19 @@ const Memos = ({ state }) => {
 		//when we have the contract then let's call memos message
 		contract && memosMessage();
 	}, [contract]);
-	return <></>;
+	return (
+		<>
+			{memos.map((memo) => {
+				return (
+					<div>
+						<p>{memo.name}</p>
+						<p>{memo.message}</p>
+						<p>{new Date(memo.timestamp * 1000).toLocaleString()}</p>
+						<p>{memo.from}</p>
+					</div>
+				);
+			})}
+		</>
+	);
 };
 export default Memos;
