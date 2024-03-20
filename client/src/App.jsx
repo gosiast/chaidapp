@@ -47,7 +47,7 @@ function App() {
 				const provider = new ethers.BrowserProvider(window.ethereum);
 				//then, we need a signer
 				//signer helps us doing transactions that will change state of the blockchain
-				const signer = provider.getSigner(); //it helps writing the blockchain
+				const signer = await provider.getSigner();
 
 				//3 things required to create instance (address,ABI,signer)
 				const contract = new ethers.Contract(

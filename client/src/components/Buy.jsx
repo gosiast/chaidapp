@@ -12,11 +12,11 @@ const Buy = ({ state }) => {
 
 		//the key should be a value
 		//we can't send ether value, it must be wei?
-		const amount = { value: ethers.utils.parseEther("0.01") };
+		const amount = { value: ethers.parseEther("0.001") };
 		const transaction = await contract.buyChai(name, message, amount);
 		await transaction.wait(); //when the transaction will be successful
-		console.log("transaction is successful");
 	};
+	console.log("transaction is successful");
 	return (
 		<>
 			<form onSubmit={buyChai}>
