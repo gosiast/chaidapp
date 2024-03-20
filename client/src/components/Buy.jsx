@@ -1,4 +1,5 @@
 import { ethers } from "ethers";
+import "./Buys.css";
 
 const Buy = ({ state }) => {
 	const buyChai = async (event) => {

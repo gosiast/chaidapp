@@ -5,6 +5,8 @@ require("dotenv").config();
 
 //we need this below to deploy smart contract on the goerli testnet
 const GOERLI_URL = process.env.GOERLI_URL;
+const BSCTESTNET_URL = process.env.BSCTESTNET_URL;
+
 //accessing it from the .env file
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 //accessing it from the .env file
@@ -14,6 +16,10 @@ module.exports = {
 	networks: {
 		goerli: {
 			url: GOERLI_URL,
+			accounts: [PRIVATE_KEY],
+		},
+		"bsc-testnet": {
+			url: BSCTESTNET_URL,
 			accounts: [PRIVATE_KEY],
 		},
 	},
