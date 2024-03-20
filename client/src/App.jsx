@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import abi from "./contractJson/chai.json";
 import "./App.css";
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
 		// it's async bc will have a lot of await(promises?)
 		const template = async () => {
 			//1st step- fetching the address and the ABI
-			const contractAddress = ""; // it has to be complete afterwards
+			const contractAddress = "0x9739177B2FC3F171719F41fb72fAc8CfF2Bc5b35"; // it has to be complete afterwards
 			const contractABI = ""; // it also has to be complete later
 			//here will be the code that will connect to MetaMask wallet
 			//1. in order to do transactions on goerli testnet
