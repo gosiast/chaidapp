@@ -10,23 +10,26 @@ function App() {
 
 	const [account, setAccount] = useState("not connected");
 
-	//using useeffect because wants to automatically fetch contracts
+	//using useEffect because wants to automatically fetch contracts
 	useEffect(() => {
+		// it's async bc will have a lot of await(promises?)
 		const template = async () => {
 			//1st step- fetching the address and the ABI
-			const contractAddress = ""; // it has to be complete
-			const contractABI = ""; // it also has to be complete
+			const contractAddress = ""; // it has to be complete afterwards
+			const contractABI = ""; // it also has to be complete later
 			//here will be the code that will connect to MetaMask wallet
-			//in order to do transactions on goerli testnet
-			//metamask consists of infura api which helps in connecting to the blockchain
-			//connecting the the wallet
+			//1. in order to do transactions on goerli testnet
+			//2. metamask consists of infura api which helps connecting to the blockchain
+			//==> connecting the the wallet
 
 			try {
 				//try is in case someone doesn't have an account
 
 				const { ethereum } = window;
+				//thanks to ethereum.request metamask wallet opens automatically
 				const account = await ethereum.request({
-					method: "eth_requestAccounts", //automatically open metamask wallet whenever user visits the website
+					method: "eth_requestAccounts",
+					// the above will automatically open metamask wallet whenever user visits the website
 				});
 				setAccount(account);
 
