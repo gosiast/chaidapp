@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import abi from "./contractJson/chai.json";
 import Buy from "./components/Buy";
 import Memos from "./components/Memos";
-import ethers from "ethers";
+import { ethers } from "ethers";
 import "./App.css";
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
 
 				// provider will help us connect with the blockchain
 				//for that we need hardhat ether.js library
-				const provider = new ethers.providers.Web3Provider(ethereum);
+				const provider = new ethers.BrowserProvider(window.ethereum);
 				//then, we need a signer
 				//signer helps us doing transactions that will change state of the blockchain
 				const signer = provider.getSigner(); //it helps writing the blockchain
@@ -61,8 +61,8 @@ function App() {
 	return (
 		<>
 			<div className="App">
-				<Buy></Buy>
-				<Memos></Memos>
+				<Buy state={state}></Buy>
+				<Memos state={state}></Memos>
 			</div>
 		</>
 	);
