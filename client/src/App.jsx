@@ -4,6 +4,7 @@ import Buy from "./components/Buy";
 import Memos from "./components/Memos";
 import { ethers } from "ethers"; // https://docs.ethers.org/v6/getting-started/
 import "./App.css";
+import chai from "./chai.png";
 
 function App() {
 	const [state, setState] = useState({
@@ -64,10 +65,14 @@ function App() {
 	}, []);
 	return (
 		<>
-			<div className="App">
-				Connected Account: {account}
-				<Buy state={state}></Buy>
-				{/*<Memos state={state}></Memos>*/}
+			<div>
+				<img src={chai} className="img-fluid" alt=".." width="100%" />
+				<p style={{ marginTop: "10px", marginLeft: "5px" }}>
+					<small>Connected Account - {account}</small>
+				</p>
+
+				<Buy state={state} />
+				<Memos state={state} />
 			</div>
 		</>
 	);
