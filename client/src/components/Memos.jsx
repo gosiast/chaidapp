@@ -1,5 +1,7 @@
+/* eslint-disable react/jsx-key */
 import { useEffect, useState } from "react";
 //we need state to 'talk' to the smart contract
+import "./Memos.css";
 
 const Memos = ({ state }) => {
 	const [memos, setMemos] = useState([]);
