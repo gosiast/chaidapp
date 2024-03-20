@@ -23,7 +23,7 @@ function App() {
 			//==> connecting the the wallet
 
 			try {
-				//try is in case someone doesn't have an account
+				//try is in case someone doesn't have an account/wallet
 
 				const { ethereum } = window;
 				//thanks to ethereum.request metamask wallet opens automatically
@@ -34,13 +34,14 @@ function App() {
 				setAccount(account);
 
 				// provider will help us connect with the blockchain
-				//for that we need hardhat ether library
+				//for that we need hardhat ether.js library
 				const provider = new ethers.providers.Web3Provider(ethereum);
 
-				//we have a signer - helps us doing transactions that will change state of the blockchain
-				const signer = provider.getSigner(); //it helps writing the blockchains
+				//then, we need a signer
+				//signer helps us doing transactions that will change state of the blockchain
+				const signer = provider.getSigner(); //it helps writing the blockchain
 
-				//3 things required to create instance
+				//3 things required to create instance (address,ABI,signer)
 				const contract = new ethers.Contract(
 					contractAddress, //this is where my contract is deployed, so i wanna go there
 					contractABI, // i need ABi bc i want to 'talk' to smart contract, it's required
@@ -53,7 +54,7 @@ function App() {
 		};
 
 		template();
-	});
+	}, []);
 	return (
 		<>
 			<div className="App"></div>
