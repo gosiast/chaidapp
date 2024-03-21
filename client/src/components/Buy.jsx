@@ -16,16 +16,26 @@ const Buy = ({ state }) => {
 		const amount = { value: ethers.parseEther("0.001") };
 		const transaction = await contract.buyChai(name, message, amount);
 		await transaction.wait(); //when the transaction will be successful
+		alert("transaction is successful");
+		window.location.reload();
 	};
-	console.log("transaction is successful");
 	return (
-		<>
+		<div className="center">
+			<h1>Thanks</h1>
 			<form onSubmit={buyChai}>
-				<input id="name"></input>
-				<input id="message"></input>
-				<button>Pay</button>
+				<div className="inputbox">
+					<input type="text" required="required" id="name" />
+					<span>Name</span>
+				</div>
+				<div className="inputbox">
+					<input type="text" required="required" id="message" />
+					<span>Message</span>{" "}
+				</div>
+				<div className="inputbox">
+					<input type="submit" value="Pay" disabled={!state.contract} />
+				</div>
 			</form>
-		</>
+		</div>
 	);
 };
 export default Buy;
