@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import abi from "./contractJson/chai.json";
+import { ethers } from "ethers"; // https://docs.ethers.org/v6/getting-started/
 import Buy from "./components/Buy";
 import Memos from "./components/Memos";
-import { ethers } from "ethers"; // https://docs.ethers.org/v6/getting-started/
-import "./App.css";
 import chai from "./chai.png";
+import "./App.css";
 
 function App() {
 	const [state, setState] = useState({
@@ -27,9 +27,8 @@ function App() {
 			//2. metamask consists of infura api which helps connecting to the blockchain
 			//==> connecting the the wallet
 
+			//try is in case someone doesn't have an account/wallet
 			try {
-				//try is in case someone doesn't have an account/wallet
-
 				const { ethereum } = window;
 				//thanks to ethereum.request metamask wallet opens automatically
 				const account = await ethereum.request({
