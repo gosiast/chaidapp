@@ -11,11 +11,21 @@ const Memos = ({ state }) => {
 		const memosMessage = async () => {
 			console.log(contract);
 			const memos = await contract.getMemos();
-			// console.log(memos);
+			console.log(memos);
+			setMemos(
+				memos.map((memo) => ({
+					name: memo[0],
+					message: memo[1],
+					timestamp: Number(memo[2]),
+					from: memo[3],
+				}))
+			); //set with the result
 		};
 		//when we have the contract then let's call memos message
 		contract && memosMessage();
 	}, [contract]);
+	console.log("state", memos);
+
 	return (
 		<div className="container-fluid">
 			<h3 style={{ textAlign: "center", marginTop: "20px" }}>Messages</h3>
